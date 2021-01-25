@@ -30,7 +30,11 @@ const createTweet = (status, { isRetweet }) => {
     // HACK: ideally, this `createTweet` function should also link retweets
     // to their parent, with the `retweetOf` field. This is a shitty
     // abstraction, but it's the best one I could come up with :/
-    return sharedTweetBasics;
+    return {
+      ...sharedTweetBasics, 
+      likedBy: [], 
+      retweetedBy: []
+    };
   } else {
     return {
       ...sharedTweetBasics,
